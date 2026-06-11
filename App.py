@@ -14,13 +14,18 @@ import os
 from langchain_openai import ChatOpenAI, OpenAIEmbeddings
 app = FastAPI()
 
-# เปิด CORS ให้ Vue 3 ยิงข้าม Port มาหาได้
+# 🌟 เพิ่มรายชื่อโดเมนหน้าบ้านของคุณเข้าไปในลิสต์นี้ 🌟
+origins = [
+    "https://www.crl-nft.xyz",       # ชื่อโดเมนหลักของคุณ
+    "https://crl-nft.xyz",
+]
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=origins,           # ให้สิทธิ์เฉพาะรายชื่อเว็บในกลุ่มด้านบนนี้เข้ามาได้
     allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
+    allow_methods=["*"],             # อนุญาตให้ใช้ POST, GET ได้ทุกรูปแบบ
+    allow_headers=["*"],             # อนุญาตทุก Header
 )
 
 # 1. โหลดฐานข้อมูลเวกเตอร์และโมเดล Embedding
