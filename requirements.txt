@@ -1,0 +1,6 @@
+fastapi
+uvicorn
+langchain-chroma
+langchain-huggingface
+pydantic
+gunicorn
