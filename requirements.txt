@@ -6,3 +6,4 @@ langchain-openai
 pydantic
 gunicorn
 pysqlite3-binary
+sentence-transformers
