@@ -2,6 +2,7 @@ fastapi
 uvicorn
 langchain-chroma
 langchain-huggingface
+langchain-openai
 pydantic
 gunicorn
 pysqlite3-binary
