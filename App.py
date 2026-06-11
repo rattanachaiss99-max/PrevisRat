@@ -2,17 +2,16 @@ __import__('pysqlite3')
 import sys
 sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
 
-# ไฟล์: app.py (เวอร์ชันแก้ไขเพื่อความปลอดภัยและผ่านกฎ GitHub)
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from langchain_chroma import Chroma
-# from langchain_huggingface import HuggingFaceEmbeddings
-from langchain_openai import OpenAIEmbeddings
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.output_parsers import StrOutputParser
 import os
 
+# 🌟 เช็คกลุ่มนี้ให้ดีครับ ต้องมีให้ครบทั้ง ChatOpenAI และ OpenAIEmbeddings 🌟
+from langchain_openai import ChatOpenAI, OpenAIEmbeddings
 app = FastAPI()
 
 # เปิด CORS ให้ Vue 3 ยิงข้าม Port มาหาได้
