@@ -1,3 +1,8 @@
+Python
+__import__('pysqlite3')
+import sys
+sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
+
 # ไฟล์: app.py (เวอร์ชันแก้ไขเพื่อความปลอดภัยและผ่านกฎ GitHub)
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware

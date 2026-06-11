@@ -4,3 +4,4 @@ langchain-chroma
 langchain-huggingface
 pydantic
 gunicorn
+pysqlite3-binary
