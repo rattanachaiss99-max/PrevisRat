@@ -7,8 +7,8 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from langchain_chroma import Chroma
-from langchain_huggingface import HuggingFaceEmbeddings
-from langchain_openai import ChatOpenAI
+# from langchain_huggingface import HuggingFaceEmbeddings
+from langchain_openai import OpenAIEmbeddings
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.output_parsers import StrOutputParser
 import os
@@ -25,7 +25,9 @@ app.add_middleware(
 )
 
 # 1. โหลดฐานข้อมูลเวกเตอร์และโมเดล Embedding
-embedding_function = HuggingFaceEmbeddings(model_name="all-MiniLM-L6-v2")
+# embedding_function = HuggingFaceEmbeddings(model_name="all-MiniLM-L6-v2")
+
+embedding_function = OpenAIEmbeddings(model="text-embedding-3-small")
 db = Chroma(persist_directory="./3d_previs_db", embedding_function=embedding_function)
 
 # 🔒 [ปรับปรุงความปลอดภัย] ดึงคีย์จากตัวแปรระบบ หากไม่มีให้ใช้คีย์จำลอง 
